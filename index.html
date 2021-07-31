@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,55 +9,67 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
     <!--TITLE-->
-    <div>
+    <div class="title columns is-centered">
         <header>Weather Meetup</header>
     </div>
 
     <!--Search DIV-->
-    <div id="search">
-        <h2>
-            Search Meetup Date & Location
-        </h2>
-        <!--enter date-->
-        <div id="enter-date">
-            <form action="date">
-                <label for="date">Enter Date</label>
-                <input type="text" id="date"/>
-        </form>
+    <div class="search-func columns is-centered" id="search">
+        <div class="column">
+            <div class="columns is-centered">
+                <h2>Search Meetup Date & Location</h2>
+            </div>
+
+            <!--enter location-->
+            <div class="columns is-centered" id="enter-location">
+                <form action="location">
+                    <label for="location">Enter City</label>
+                    <input type="text" id="location" />
+                </form>
+            </div>
+            <!-- submit button -->
+            <div class="columns is-centered">
+                <button class="button" type="submit" id="btn">Submit</button>
+            </div>
         </div>
-        <!--enter location-->
-        <div id="enter-location">
-            <form action="location">
-                <label for="location">Enter City</label>
-                <input type="text" id="location"/>
-        </form>
-        </div>
-        <!-- submit button -->
-        <button class="button" type="submit" id="btn">Submit</button>
     </div>
 
-        <!-- location text -->
-    <div class="columns is-full" id="results">
+    <!-- location text -->
+    <div class="location columns is-full" id="results">
         <!--Location result-->
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo id soluta repellat minus dolores accusamus
+        nam iure dolorum temporibus, recusandae maxime voluptas fuga, nihil culpa! Adipisci esse tempore magni fugiat?
     </div>
 
     <!--Results-->
     <div class="columns is-full">
         <!-- meetup results -->
-        <div id="meet-display">
-
+        <div class="park-result column" id="meet-display">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam officia tempora maiores maxime quidem quos
+            placeat ratione! Corrupti, animi, adipisci pariatur odio iure dicta deserunt sint, a ipsam provident
+            facilis.
         </div>
+        
         <!-- weather results -->
-        <div id="weather-display">
-
+        <div class="weather-result column" id="weather-display">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quidem atque officiis doloremque provident
+            aut repellendus dolorem minus incidunt. Veritatis consequuntur doloremque aspernatur eligendi repellendus
+            dicta fugiat omnis minus illo!
         </div>
     </div>
+    <!-- Add jQuery CDN for JavaScript functionalities -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Add moment.js for time and date reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--javascript-->
     <script src="./assets/script.js"></script>
-     <!-- Add jQuery CDN for JavaScript functionalities -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <!-- Add moment.js for time and date reference -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+
 </html>
