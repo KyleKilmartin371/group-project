@@ -1,26 +1,12 @@
 //function to call weather API
 function myFunction () {
-    var searchTerm = document.querySelector("#searchTerm").value; 
+    var searchTerm = document.querySelector("#searchTerm").value.split(", "); 
     event.preventDefault();
     console.log(searchTerm);
   
-    // Make a `fetch` request concatenating that search term to the query URL for current weather
-    fetch (
-      'https://api.openweathermap.org/data/2.5/weather?q=' + searchTerm +'&units=imperial&appid=8e2a4447de15a5d804cf8a7d25a93eca'
-    )  
-    
-    // Converts the response to JSON
-    .then(function(response) {
-      console.log(response);
-      return response.json();
-    })  
-  
-    .then(function(response) {
-      console.log(response.data);
-    
-      // Make a `fetch` request concatenating that search term to the query URL for weather forecast
+    // Make a `fetch` request concatenating that search term to the query URL for weather forecast
       fetch (
-        'https://api.openweathermap.org/data/2.5/forecast?q=' + searchTerm +'&units=imperial&appid=8e2a4447de15a5d804cf8a7d25a93eca'
+        'https://api.openweathermap.org/data/2.5/forecast?q=' + searchTerm[0] +'&units=imperial&appid=8e2a4447de15a5d804cf8a7d25a93eca'
       )  
     
       // Converts the response to JSON
@@ -64,11 +50,49 @@ function myFunction () {
         $("#dayFiveSpeed").html("Wind: " + response.list[32].wind.speed + " mph");
         $("#dayFiveHumidity").html("Humidity: " + response.list[32].main.humidity + "%");
   
-      })
-    })  
-  }
+      })  
 
 // function to call trail API
+// Make a `fetch` request concatenating that search term to the query URL for nearby parks
+fetch (
+    'https://developer.nps.gov/api/v1/parks?stateCode=' + searchTerm[1] +'&limit=100&api_key=eIBcWOJxSuc0Pbly72GNBY8PLO1RTfczXbAeb5hL'
+  )  
 
+  // Converts the response to JSON
+  .then(function(response) {
+    console.log(response);
+    return response.json();
+  })  
 
-//function to call both API upon submit click
+  .then(function(response) {
+    console.log(response.data);
+    
+    /* use jQuery to bring park information from the API to the first 5 parks */
+
+    /* PARK 1 */
+    $("#fullNameOne").html(response.data[0].fullName);
+    $("#urlOne").html(response.data[0].url);
+    $("#descriptionOne").html(response.data[0].description);
+
+    /* PARK 2 */
+    $("#fullNameTwo").html(response.data[1].fullName);
+    $("#urlTwo").html(response.data[1].url);
+    $("#descriptionTwo").html(response.data[1].description);
+
+    /* PARK 3 */
+    $("#fullNameThree").html(response.data[2].fullName);
+    $("#urlThree").html(response.data[2].url);
+    $("#descriptionThree").html(response.data[2].description);
+
+    /* PARK 4 */
+    $("#fullNameFour").html(response.data[3].fullName);
+    $("#urlFour").html(response.data[3].url);
+    $("#descriptionFour").html(response.data[3].description);
+
+    /* PARK 5 */
+    $("#fullNameFive").html(response.data[4].fullName);
+    $("#urlFive").html(response.data[4].url);
+    $("#descriptionFive").html(response.data[4].description);
+
+  })  
+}
