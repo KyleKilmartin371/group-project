@@ -1,59 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group-Project</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
     <!--TITLE-->
-    <div class="columns is-full">
-      <header>Weather Meetup</header>
+    <div class="title columns is-centered">
+        <header>Weather Meetup</header>
     </div>
 
     <!--Search DIV-->
-    <div class="columns is-full" id="search">
-      <h2>Search Meetup Date & Location</h2>
-      <!--enter location-->
-      <div class="column" id="enter-location">
-        <form action="location">
-          <label for="location">Enter City</label>
-          <input type="text" id="searchTerm" />
-        </form>
-      </div>
-      <!-- submit button -->
-      <button class="button" type="submit" id="btn" onclick="myFunction()">
-        Search
-      </button>
+    <div class="search-func columns is-centered" id="search">
+        <div class="column">
+            <div class="columns is-centered">
+                <h2>Search Meetup Date & Location</h2>
+            </div>
+
+            <!--enter location-->
+            <div class="columns is-centered" id="enter-location">
+                <form action="location">
+                    <label for="location">Enter City</label>
+                    <input type="text" id="searchTerm" />
+                </form>
+            </div>
+            <!-- submit button -->
+            <div class="columns is-centered">
+                <button class="button" type="submit" id="btn" onclick="myFunction()" >Search</button>
+            </div>
+        </div>
     </div>
 
     <!-- location text -->
-    <div class="columns is-full" id="results">
-      <!--Location result-->
+    <div class="location columns is-full" id="results">
+        <!--Location result-->
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo id soluta repellat minus dolores accusamus
+        nam iure dolorum temporibus, recusandae maxime voluptas fuga, nihil culpa! Adipisci esse tempore magni fugiat?
     </div>
 
     <!--Results-->
     <div class="columns is-full">
-      <!-- meetup results -->
-      <div class="column" id="meet-display"></div>
-      <!-- weather results -->
-      <div class="column" id="weather-display"></div>
+
+        <!-- weather results -->
+        <div class="weather-result column" id="weather-display">
+            <div class="column">
+                <h4>5-Day Forecast:</h4>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayOne" class="futureDate"> </div>
+                    <div id="dayOneIcon"> </div>
+                    <div id="dayOneTemp"></div>
+                    <div id="dayOneSpeed"></div>
+                    <div id="dayOneHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayTwo" class="futureDate"> </div>
+                    <div id="dayTwoIcon"> </div>
+                    <div id="dayTwoTemp"></div>
+                    <div id="dayTwoSpeed"></div>
+                    <div id="dayTwoHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayThree" class="futureDate"> </div>
+                    <div id="dayThreeIcon"> </div>
+                    <div id="dayThreeTemp"></div>
+                    <div id="dayThreeSpeed"></div>
+                    <div id="dayThreeHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayFour" class="futureDate"> </div>
+                    <div id="dayFourIcon"> </div>
+                    <div id="dayFourTemp"></div>
+                    <div id="dayFourSpeed"></div>
+                    <div id="dayFourHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayFive" class="futureDate"> </div>
+                    <div id="dayFiveIcon"> </div>
+                    <div id="dayFiveTemp"></div>
+                    <div id="dayFiveSpeed"></div>
+                    <div id="dayFiveHumidity"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- meetup results -->
+        <div class="park-result column" id="meet-display">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam officia tempora maiores maxime quidem quos
+            placeat ratione! Corrupti, animi, adipisci pariatur odio iure dicta deserunt sint, a ipsam provident
+            facilis.
+        </div>
+
     </div>
-    <script src="./assets/script.js"></script>
     <!-- Add jQuery CDN for JavaScript functionalities -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Add moment.js for time and date reference -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--javascript-->
+    <script src="./assets/script.js"></script>
+</body>
+
 </html>
