@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Group-Project</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
     <!--TITLE-->
     <div class="columns is-full">
-        <header>Weather Meetup</header>
+      <header>Weather Meetup</header>
     </div>
 
     <!--Search DIV-->
     <div class="columns is-full" id="search">
-        <h2>
-            Search Meetup Date & Location
-        </h2>
-        <!--enter date-->
-        <div class="column" id="enter-date">
-            <form action="date">
-                <label for="date">Enter Date</label>
-                <input type="text" id="date"/>
+      <h2>Search Meetup Date & Location</h2>
+      <!--enter location-->
+      <div class="column" id="enter-location">
+        <form action="location">
+          <label for="location">Enter City</label>
+          <input type="text" id="searchTerm" />
         </form>
-        </div>
-        <!--enter location-->
-        <div class="column" id="enter-location">
-            <form action="location">
-                <label for="location">Enter City</label>
-                <input type="text" id="location"/>
-        </form>
-        </div>
-        <!-- submit button -->
-        <button class="button" type="submit" id="btn">Submit</button>
+      </div>
+      <!-- submit button -->
+      <button class="button" type="submit" id="btn" onclick="myFunction()">
+        Search
+      </button>
     </div>
 
-        <!-- location text -->
+    <!-- location text -->
     <div class="columns is-full" id="results">
-        <!--Location result-->
+      <!--Location result-->
     </div>
 
     <!--Results-->
     <div class="columns is-full">
-        <!-- meetup results -->
-        <div class="column" id="meet-display">
-
-        </div>
-        <!-- weather results -->
-        <div class="column" id="weather-display">
-
-        </div>
+      <!-- meetup results -->
+      <div class="column" id="meet-display"></div>
+      <!-- weather results -->
+      <div class="column" id="weather-display"></div>
     </div>
     <script src="./assets/script.js"></script>
-     <!-- Add jQuery CDN for JavaScript functionalities -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <!-- Add moment.js for time and date reference -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
+    <!-- Add jQuery CDN for JavaScript functionalities -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Add moment.js for time and date reference -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
 </html>
