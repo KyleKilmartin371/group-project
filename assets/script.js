@@ -17,6 +17,10 @@ function myFunction () {
   
       .then(function(response) {
         console.log(response.data);
+        var weatherLat = response.city.coord.lat;
+        console.log(weatherLat);
+        var weatherLon = response.city.coord.lon;
+        console.log(weatherLon);
         
         /* use jQuery to bring weather data from the API to the 5-day forecast cards */
   
@@ -50,49 +54,57 @@ function myFunction () {
         $("#dayFiveSpeed").html("Wind: " + response.list[32].wind.speed + " mph");
         $("#dayFiveHumidity").html("Humidity: " + response.list[32].main.humidity + "%");
   
-      })  
+        // function to call trail API
 
-// function to call trail API
-// Make a `fetch` request concatenating that search term to the query URL for nearby parks
-fetch (
-    'https://developer.nps.gov/api/v1/parks?stateCode=' + searchTerm[1] +'&limit=100&api_key=eIBcWOJxSuc0Pbly72GNBY8PLO1RTfczXbAeb5hL'
-  )  
+        // Make a `fetch` request concatenating that search term to the query URL for nearby parks
+        fetch (
+        'https://developer.nps.gov/api/v1/parks?stateCode=' + searchTerm[1] +'&limit=100&api_key=eIBcWOJxSuc0Pbly72GNBY8PLO1RTfczXbAeb5hL'
+        )  
 
-  // Converts the response to JSON
-  .then(function(response) {
-    console.log(response);
-    return response.json();
-  })  
+        // Converts the response to JSON
+        .then(function(response) {
+         console.log(response);
+            return response.json();
+        })  
 
-  .then(function(response) {
-    console.log(response.data);
+        .then(function(response) {
+         console.log(response.data);
+        // for (let i = 0; i < response.data.length; i++) {
+        //     if (weatherLat - response.data.latitude > 1 || weatherLon - response.data.longitude) {
+        //         console.log(response);
+        //         break;
+        //     };
+            
+        // };
     
-    /* use jQuery to bring park information from the API to the first 5 parks */
+        /* use jQuery to bring park information from the API to the first 5 parks */
 
-    /* PARK 1 */
-    $("#fullNameOne").html(response.data[0].fullName);
-    $("#urlOne").html(response.data[0].url);
-    $("#descriptionOne").html(response.data[0].description);
+        /* PARK 1 */
+         $("#fullNameOne").html(response.data[0].fullName);
+         $("#urlOne").html(response.data[0].url);
+        $("#descriptionOne").html(response.data[0].description);
 
-    /* PARK 2 */
-    $("#fullNameTwo").html(response.data[1].fullName);
-    $("#urlTwo").html(response.data[1].url);
-    $("#descriptionTwo").html(response.data[1].description);
+        /* PARK 2 */
+        $("#fullNameTwo").html(response.data[1].fullName);
+        $("#urlTwo").html(response.data[1].url);
+        $("#descriptionTwo").html(response.data[1].description);
 
-    /* PARK 3 */
-    $("#fullNameThree").html(response.data[2].fullName);
-    $("#urlThree").html(response.data[2].url);
-    $("#descriptionThree").html(response.data[2].description);
+        /* PARK 3 */
+        $("#fullNameThree").html(response.data[2].fullName);
+        $("#urlThree").html(response.data[2].url);
+        $("#descriptionThree").html(response.data[2].description);
 
-    /* PARK 4 */
-    $("#fullNameFour").html(response.data[3].fullName);
-    $("#urlFour").html(response.data[3].url);
-    $("#descriptionFour").html(response.data[3].description);
+        /* PARK 4 */
+        $("#fullNameFour").html(response.data[3].fullName);
+        $("#urlFour").html(response.data[3].url);
+        $("#descriptionFour").html(response.data[3].description);
 
-    /* PARK 5 */
-    $("#fullNameFive").html(response.data[4].fullName);
-    $("#urlFive").html(response.data[4].url);
-    $("#descriptionFive").html(response.data[4].description);
+        /* PARK 5 */
+        $("#fullNameFive").html(response.data[4].fullName);
+        $("#urlFive").html(response.data[4].url);
+        $("#descriptionFive").html(response.data[4].description);
 
-  })  
-}
+        });
+    });  
+          
+};
