@@ -19,6 +19,7 @@ body{
     margin: 30px;
 }
 
+/* Added width: 50% and margin: 0 auto */
 .title{
     font-size: 75px;
     color: var(--fourth-color);
@@ -29,28 +30,31 @@ body{
     margin: 0 auto;
 }
 
+/* Added width: 35% and margin: 0 auto */
 .search-func{
     color: var(--fourth-color);
     padding-bottom: 30px;
     border: solid 2px;
+    background-color: var(--third-color);
     width: 35%;
     margin: 0 auto;
-    background-color: var(--third-color);
 }
 
 .button{
     background-color: var(--fifth-color);
 }
 
+/* Added width: 25% and margin: 0 auto */
 .location{
     color: var(--fourth-color);
     padding: 25px;
     border: solid 2px;
+    background-color: var(--third-color);
     width: 25%;
     margin: 0 auto;
-    background-color: var(--third-color);
 }
 
+/* Added margin left and margin right */
 .park-result{
     color: var(--fourth-color);
     border: solid 2px;
@@ -60,6 +64,7 @@ body{
     background-color: var(--third-color);
 }
 
+/* Added margin left and margin right */
 .weather-result{
     color: var(--fourth-color);
     border: solid 2px;

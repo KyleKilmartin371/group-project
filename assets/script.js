@@ -23,9 +23,10 @@ function myFunction() {
       var weatherLon = response.city.coord.lon;
       // console.log(weatherLon);
 
-      clearDates();
+      // Clear results to make space for the new search
+      clearResults();
 
-      // This for loop retrives the dates and puts them into "dates" array.
+      // This for loop retrieves the dates and puts them into "dates" array.
       for (let index = 1; index <= 5; index++) {
         var date = moment().add(index, "days").format("MM/DD/YYYY").toString()
         dates.push(date);
@@ -122,7 +123,7 @@ function myFunction() {
 };
 
 // This function clears the inner html to reset display upon each call for a search result
-function clearDates() {
+function clearResults() {
       $("#dayOne").html('');
       $("#dayOneTemp").html('');
       $("#dayOneSpeed").html('');
