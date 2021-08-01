@@ -26,13 +26,16 @@
             <!--enter location-->
             <div class="columns is-centered" id="enter-location">
                 <form action="location">
-                    <label for="location">Enter City</label>
-                    <input type="text" id="location" />
+                    <label for="location">Enter Location</label>
+                    <input type="text" id="searchLocation" placeholder="What city?" />
+
+                    <label for="location">Enter Date</label>
+                    <input type="text" id="searchDate" placeholder="MM/DD/YYYY" />
                 </form>
             </div>
             <!-- submit button -->
             <div class="columns is-centered">
-                <button class="button" type="submit" id="btn">Submit</button>
+                <button class="button" type="submit" id="btn" onclick="myFunction()" >Search</button>
             </div>
         </div>
     </div>
@@ -46,19 +49,61 @@
 
     <!--Results-->
     <div class="columns is-full">
+
+        <!-- weather results -->
+        <div class="weather-result column" id="weather-display">
+            <div class="column">
+                <h4>5-Day Forecast:</h4><br>
+
+                <div style="max-width: 11rem;">
+                    <div id="dayOne" class="futureDate"> </div>
+                    <div id="dayOneIcon"> </div>
+                    <div id="dayOneTemp"></div>
+                    <div id="dayOneSpeed"></div>
+                    <div id="dayOneHumidity"></div><br>
+                </div>
+
+                <div style="max-width: 11rem;">
+                    <div id="dayTwo" class="futureDate"> </div>
+                    <div id="dayTwoIcon"> </div>
+                    <div id="dayTwoTemp"></div>
+                    <div id="dayTwoSpeed"></div>
+                    <div id="dayTwoHumidity"></div><br>
+                </div>
+
+                <div style="max-width: 11rem;">
+                    <div id="dayThree" class="futureDate"> </div>
+                    <div id="dayThreeIcon"> </div>
+                    <div id="dayThreeTemp"></div>
+                    <div id="dayThreeSpeed"></div>
+                    <div id="dayThreeHumidity"></div><br>
+                </div>
+
+                <div style="max-width: 11rem;">
+                    <div id="dayFour" class="futureDate"> </div>
+                    <div id="dayFourIcon"> </div>
+                    <div id="dayFourTemp"></div>
+                    <div id="dayFourSpeed"></div>
+                    <div id="dayFourHumidity"></div><br>
+                </div>
+
+                <div style="max-width: 11rem;">
+                    <div id="dayFive" class="futureDate"> </div>
+                    <div id="dayFiveIcon"> </div>
+                    <div id="dayFiveTemp"></div>
+                    <div id="dayFiveSpeed"></div>
+                    <div id="dayFiveHumidity"></div><br>
+                </div>
+            </div>
+        </div>
+
         <!-- meetup results -->
         <div class="park-result column" id="meet-display">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam officia tempora maiores maxime quidem quos
             placeat ratione! Corrupti, animi, adipisci pariatur odio iure dicta deserunt sint, a ipsam provident
             facilis.
         </div>
-        
-        <!-- weather results -->
-        <div class="weather-result column" id="weather-display">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quidem atque officiis doloremque provident
-            aut repellendus dolorem minus incidunt. Veritatis consequuntur doloremque aspernatur eligendi repellendus
-            dicta fugiat omnis minus illo!
-        </div>
+
     </div>
     <!-- Add jQuery CDN for JavaScript functionalities -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

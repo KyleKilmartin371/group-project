@@ -1,3 +1,4 @@
+
 :root{
     --first-color: #4f5d75;
     --second-color: #b88E8D;
@@ -24,12 +25,16 @@ body{
     padding: 50px;
     border: solid 2px;
     background-color: var(--third-color);
+    width: 50%;
+    margin: 0 auto;
 }
 
 .search-func{
     color: var(--fourth-color);
     padding-bottom: 30px;
     border: solid 2px;
+    width: 35%;
+    margin: 0 auto;
     background-color: var(--third-color);
 }
 
@@ -41,19 +46,25 @@ body{
     color: var(--fourth-color);
     padding: 25px;
     border: solid 2px;
+    width: 25%;
+    margin: 0 auto;
     background-color: var(--third-color);
 }
 
 .park-result{
     color: var(--fourth-color);
     border: solid 2px;
-    margin: 10px;
+    margin-right: 500px;
+    margin-left: 5px;
+    border-radius: 10px;
     background-color: var(--third-color);
 }
 
 .weather-result{
     color: var(--fourth-color);
     border: solid 2px;
-    margin: 10px;
+    margin-left: 500px;
+    margin-right: 5px;
+    border-radius: 10px;
     background-color: var(--third-color);
 }
