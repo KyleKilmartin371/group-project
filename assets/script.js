@@ -69,10 +69,14 @@ function myFunction () {
 
         .then(function(response) {
          console.log(response.data);
+
         // for (let i = 0; i < response.data.length; i++) {
-        //     if (weatherLat - response.data.latitude > 1 || weatherLon - response.data.longitude) {
-        //         console.log(response);
-        //         break;
+        // var parkLat = response.data[i].latitude;
+        // console.log(parkLat);
+        // var parkLon = response.data[i].longitude;
+        // console.log(parkLon);
+        //     if (weatherLat - parkLat > 1 || weatherLon - parkLon > 1 || weatherLat - parkLat < -1 || weatherLon - parkLon < -1) {
+        //         setAttribute(class:"hide");
         //     };
             
         // };
@@ -83,26 +87,35 @@ function myFunction () {
          $("#fullNameOne").html(response.data[0].fullName);
          $("#urlOne").html(response.data[0].url);
         $("#descriptionOne").html(response.data[0].description);
+        $("imageOne").html(response.data[0].images[0].url);
 
         /* PARK 2 */
         $("#fullNameTwo").html(response.data[1].fullName);
         $("#urlTwo").html(response.data[1].url);
         $("#descriptionTwo").html(response.data[1].description);
+        $("imageTwo").html(response.data[1].images[0].url);
+
 
         /* PARK 3 */
         $("#fullNameThree").html(response.data[2].fullName);
         $("#urlThree").html(response.data[2].url);
         $("#descriptionThree").html(response.data[2].description);
+        $("imageThree").html(response.data[2].images[0].url);
+
 
         /* PARK 4 */
         $("#fullNameFour").html(response.data[3].fullName);
         $("#urlFour").html(response.data[3].url);
         $("#descriptionFour").html(response.data[3].description);
+        $("imageFour").html(response.data[3].images[0].url);
+
 
         /* PARK 5 */
         $("#fullNameFive").html(response.data[4].fullName);
         $("#urlFive").html(response.data[4].url);
         $("#descriptionFive").html(response.data[4].description);
+        $("imageFive").html(response.data[4].images[0].url);
+
 
         });
     });  
