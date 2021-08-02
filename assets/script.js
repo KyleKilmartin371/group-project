@@ -1,5 +1,8 @@
 //function to call weather API
 var parkDisplay = document.querySelector("#meet-display");
+var weatherDisplay = document.querySelector("#weather-display");
+
+
 function myFunction() {
   var searchTerm = document.querySelector("#searchTerm").value.split(", ");
   event.preventDefault();
@@ -19,41 +22,35 @@ function myFunction() {
     .then(function (response) {
       console.log(response.city);
       var weatherLat = response.city.coord.lat;
-      console.log(weatherLat);
-      var weatherLon = response.city.coord.lon;
-      console.log(weatherLon);
+      var weatherLong = response.city.coord.lon;
+      var datesArray = []
+      weatherDisplay.innerHTML = "<h2>" + "5 Day forecast:" + "</h2>" + "<br>";
 
       /* use jQuery to bring weather data from the API to the 5-day forecast cards */
+      for (let day = 1; day <= 5; day++) {
+        var date = moment().add(day, "days").format("M/D/YYYY").toString()
+        datesArray.push(date);
+      }
 
-      /* DAY 1 FORECAST */
-      $("#dayOne").html(moment().add(1, "days").format("M/D/YYYY").toString());
-      $("#dayOneTemp").html("Temp: " + response.list[2].main.temp + " °F");
-      $("#dayOneSpeed").html("Wind: " + response.list[2].wind.speed + " mph");
-      $("#dayOneHumidity").html("Humidity: " + response.list[2].main.humidity + "%");
+      for (let index = 0; index <= 32; index += 8) {
+        var dateEl = document.createElement("p");
+        var tempEl = document.createElement("p");
+        var windEl = document.createElement("p");
+        var HumidityEl = document.createElement("p");
+        var lineBreak = document.createElement("br");
+        
 
-      /* DAY 2 FORECAST */
-      $("#dayTwo").html(moment().add(2, "days").format("M/D/YYYY").toString());
-      $("#dayTwoTemp").html("Temp: " + response.list[8].main.temp + " °F");
-      $("#dayTwoSpeed").html("Wind: " + response.list[10].wind.speed + " mph");
-      $("#dayTwoHumidity").html("Humidity: " + response.list[10].main.humidity + "%");
+        dateEl.textContent = datesArray[index/8];
+        tempEl.textContent = "Temp: " + response.list[index].main.temp + " °F";
+        windEl.textContent = "Wind: " + response.list[index].wind.speed + " mph";
+        HumidityEl.textContent = "Humidity: " + response.list[index].main.humidity + "%";
 
-      /* DAY 3 FORECAST */
-      $("#dayThree").html(moment().add(3, "days").format("M/D/YYYY").toString());
-      $("#dayThreeTemp").html("Temp: " + response.list[16].main.temp + " °F");
-      $("#dayThreeSpeed").html("Wind: " + response.list[16].wind.speed + " mph");
-      $("#dayThreeHumidity").html("Humidity: " + response.list[16].main.humidity + "%");
-
-      /* DAY 4 FORECAST */
-      $("#dayFour").html(moment().add(4, "days").format("M/D/YYYY").toString());
-      $("#dayFourTemp").html("Temp: " + response.list[24].main.temp + " °F");
-      $("#dayFourSpeed").html("Wind: " + response.list[24].wind.speed + " mph");
-      $("#dayFourHumidity").html("Humidity: " + response.list[24].main.humidity + "%");
-
-      /* DAY 5 FORECAST */
-      $("#dayFive").html(moment().add(5, "days").format("M/D/YYYY").toString());
-      $("#dayFiveTemp").html("Temp: " + response.list[32].main.temp + " °F");
-      $("#dayFiveSpeed").html("Wind: " + response.list[32].wind.speed + " mph");
-      $("#dayFiveHumidity").html("Humidity: " + response.list[32].main.humidity + "%");
+        weatherDisplay.appendChild(dateEl);
+        weatherDisplay.appendChild(tempEl);
+        weatherDisplay.appendChild(windEl);
+        weatherDisplay.appendChild(HumidityEl);
+        weatherDisplay.appendChild(lineBreak);
+      }
 
       // function to call trail API
 
@@ -69,67 +66,40 @@ function myFunction() {
         })
 
         .then(function (response) {
-          console.log("Park data is " + response.data[0]);
 
-          console.log(parkLat);
-          console.log(parkLon);
-          console.log(weatherLat - parkLat);
-          console.log(weatherLon - parkLon);
-          console.log(response.data.length);
-
-
+          parkDisplay.innerHTML = "<h2>" + "Park List:" + "</h2>" + "<br>";
           for (let i = 0; i < response.data.length; i++) {
             var parkLat = response.data[i].latitude
-            var parkLon = response.data[i].longitude
-            if (weatherLat - parkLat < 1 && weatherLon - parkLon < 1 && weatherLat - parkLat > -1 && weatherLon - parkLon > -1 ) {
-              // var parkItem = document.createElement("div");
-              // parkItem.innerHTML(response.data[i].fullName);
-              // parkDisplay.appendChild(parkItem);
-              
-              console.log(i);
+            var parkLong = response.data[i].longitude
+            
+
+            var latDiff = weatherLat - parkLat
+            var longDiff = weatherLong - parkLong
+
+            if ((latDiff < 1) && (longDiff < 1) && (latDiff > -1) && (longDiff > -1)) {
+              var parkName = document.createElement("p");
+              var url = document.createElement("p");
+              var description = document.createElement("p");
+              var lineBreak = document.createElement("br");
+
+              parkName.textContent = "Name: " + response.data[i].fullName;
+              url.textContent = "Link: " + response.data[i].url;
+              description.textContent = "Description: " + response.data[i].description;
+
+              parkDisplay.appendChild(parkName);
+              parkDisplay.appendChild(url);
+              parkDisplay.appendChild(description);
+              parkDisplay.appendChild(lineBreak);
+
+              console.log("Located at index " + i);
               console.log(weatherLat - parkLat);
-              console.log(weatherLon - parkLon);
+              console.log(weatherLong - parkLong);
               console.log(response.data[i].fullName);
               console.log(response.data[i].url);
               console.log(response.data[i].description);
             }
           };
-
-          /* use jQuery to bring park information from the API to the first 5 parks */
-
-          /* PARK 1 */
-          
-          // $("#fullNameOne").html(response.data[0].fullName);
-          // $("#urlOne").html(response.data[0].url);
-          // $("#descriptionOne").html(response.data[0].description);
-
-          // /* PARK 2 */
-          // $("#fullNameTwo").html(response.data[1].fullName);
-          // $("#urlTwo").html(response.data[1].url);
-          // $("#descriptionTwo").html(response.data[1].description);
-
-          // /* PARK 3 */
-          // $("#fullNameThree").html(response.data[2].fullName);
-          // $("#urlThree").html(response.data[2].url);
-          // $("#descriptionThree").html(response.data[2].description);
-
-          // /* PARK 4 */
-          // $("#fullNameFour").html(response.data[3].fullName);
-          // $("#urlFour").html(response.data[3].url);
-          // $("#descriptionFour").html(response.data[3].description);
-
-          // /* PARK 5 */
-          // $("#fullNameFive").html(response.data[4].fullName);
-          // $("#urlFive").html(response.data[4].url);
-          // $("#descriptionFive").html(response.data[4].description);
-
         });
     });
 
 };
-
-
-// var editButtonEl = document.createElement("button");
-// editButtonEl.textContent = "Edit";
-// editButtonEl.className = "btn edit-btn";
-// editButtonEl.setAttribute("data-task-id", taskId);
