@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
     <!--TITLE-->
+<<<<<<< HEAD
     <div class="columns is-full">
+=======
+    <div class="title columns is-centered">
+>>>>>>> 4064ea9a558f90acd9bf5565523b407afb7ba931
         <header>Weather Meetup</header>
     </div>
 
     <!--Search DIV-->
+<<<<<<< HEAD
     <div class="columns is-full" id="search">
         <h2>
             Search Meetup Date & Location
@@ -40,10 +47,38 @@
         <!-- location text -->
     <div class="columns is-full" id="results">
         <!--Location result-->
+=======
+    <div class="search-func columns is-centered" id="search">
+        <div class="column">
+            <div class="columns is-centered">
+                <h2>Search Meetup Date & Location</h2>
+            </div>
+
+            <!--enter location-->
+            <div class="columns is-centered" id="enter-location">
+                <form action="location">
+                    <label for="location">Enter "City, State Code"</label>
+                    <input type="text" id="searchTerm" />
+                </form>
+            </div>
+            <!-- submit button -->
+            <div class="columns is-centered">
+                <button class="button" type="submit" id="btn" onclick="myFunction()" >Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- location text -->
+    <div class="location columns is-full" id="results">
+        <!--Location result-->
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo id soluta repellat minus dolores accusamus
+        nam iure dolorum temporibus, recusandae maxime voluptas fuga, nihil culpa! Adipisci esse tempore magni fugiat?
+>>>>>>> 4064ea9a558f90acd9bf5565523b407afb7ba931
     </div>
 
     <!--Results-->
     <div class="columns is-full">
+<<<<<<< HEAD
         <!-- meetup results -->
         <div class="column" id="meet-display">
 
@@ -60,5 +95,101 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      <!-- Add moment.js for time and date reference -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+=======
+
+        <!-- weather results -->
+        <div class="weather-result column" id="weather-display">
+            <div class="column">
+                <h4>5-Day Forecast:</h4>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayOne" class="futureDate"> </div>
+                    <div id="dayOneIcon"> </div>
+                    <div id="dayOneTemp"></div>
+                    <div id="dayOneSpeed"></div>
+                    <div id="dayOneHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayTwo" class="futureDate"> </div>
+                    <div id="dayTwoIcon"> </div>
+                    <div id="dayTwoTemp"></div>
+                    <div id="dayTwoSpeed"></div>
+                    <div id="dayTwoHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayThree" class="futureDate"> </div>
+                    <div id="dayThreeIcon"> </div>
+                    <div id="dayThreeTemp"></div>
+                    <div id="dayThreeSpeed"></div>
+                    <div id="dayThreeHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayFour" class="futureDate"> </div>
+                    <div id="dayFourIcon"> </div>
+                    <div id="dayFourTemp"></div>
+                    <div id="dayFourSpeed"></div>
+                    <div id="dayFourHumidity"></div>
+                </div>
+
+                <div class="columns" style="max-width: 9rem;">
+                    <div id="dayFive" class="futureDate"> </div>
+                    <div id="dayFiveIcon"> </div>
+                    <div id="dayFiveTemp"></div>
+                    <div id="dayFiveSpeed"></div>
+                    <div id="dayFiveHumidity"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- meetup results -->
+        <div class="park-result column" id="meet-display">
+            <div>
+                <div id="fullNameOne"></div>
+                <div id="urlOne"></div>
+                <div id="descriptionOne"></div>
+                <div id="imageOne"></div>
+            </div>
+            <div>
+                <div id="fullNameTwo"></div>
+                <div id="urlTwo"></div>
+                <div id="descriptionTwo"></div>
+                <div id="imageTwo"></div>
+            </div>
+            <div>
+                <div id="fullNameThree"></div>
+                <div id="urlThree"></div>
+                <div id="descriptionThree"></div>
+                <div id="imageThree"></div>
+            </div>
+            <div>
+                <div id="fullNameFour"></div>
+                <div id="urlFour"></div>
+                <div id="descriptionFour"></div>
+                <div id="imageFour"></div>
+            </div>
+            <div>
+                <div id="fullNameFive"></div>
+                <div id="urlFive"></div>
+                <div id="descriptionFive"></div>
+                <div id="imageFive"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Add jQuery CDN for JavaScript functionalities -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Add moment.js for time and date reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--javascript-->
+    <script src="./assets/script.js"></script>
+>>>>>>> 4064ea9a558f90acd9bf5565523b407afb7ba931
 </body>
+
 </html>
