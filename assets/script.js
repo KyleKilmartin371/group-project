@@ -38,9 +38,9 @@ function myFunction() {
         var windEl = document.createElement("p");
         var HumidityEl = document.createElement("p");
         var lineBreak = document.createElement("br");
-        
 
-        dateEl.textContent = datesArray[index/8];
+
+        dateEl.textContent = datesArray[index / 8];
         tempEl.textContent = "Temp: " + response.list[index].main.temp + " °F";
         windEl.textContent = "Wind: " + response.list[index].wind.speed + " mph";
         HumidityEl.textContent = "Humidity: " + response.list[index].main.humidity + "%";
@@ -71,12 +71,11 @@ function myFunction() {
           for (let i = 0; i < response.data.length; i++) {
             var parkLat = response.data[i].latitude
             var parkLong = response.data[i].longitude
-            
 
-            var latDiff = weatherLat - parkLat
-            var longDiff = weatherLong - parkLong
+            var latDiff = Math.abs(weatherLat - parkLat);
+            var longDiff = Math.abs(weatherLong - parkLong);
 
-            if ((latDiff < 1) && (longDiff < 1) && (latDiff > -1) && (longDiff > -1)) {
+            if ((latDiff < 1) && (longDiff < 1)) {
               var parkName = document.createElement("p");
               var url = document.createElement("p");
               var description = document.createElement("p");
@@ -92,8 +91,8 @@ function myFunction() {
               parkDisplay.appendChild(lineBreak);
 
               console.log("Located at index " + i);
-              console.log(weatherLat - parkLat);
-              console.log(weatherLong - parkLong);
+              console.log(latDiff);
+              console.log(longDiff);
               console.log(response.data[i].fullName);
               console.log(response.data[i].url);
               console.log(response.data[i].description);
@@ -101,5 +100,4 @@ function myFunction() {
           };
         });
     });
-
 };
