@@ -32,23 +32,28 @@ function myFunction() {
         datesArray.push(date);
       }
 
-      for (let index = 0; index <= 32; index += 8) {
+      for (let index = 4; index <= 36; index += 8) {
         var dateEl = document.createElement("p");
         var tempEl = document.createElement("p");
         var windEl = document.createElement("p");
         var HumidityEl = document.createElement("p");
+        var iconEl = document.createElement("img");
         var lineBreak = document.createElement("br");
+        console.log(response.list[index].weather[0].icon);
+        
 
 
         dateEl.textContent = datesArray[index / 8];
         tempEl.textContent = "Temp: " + response.list[index].main.temp + " °F";
         windEl.textContent = "Wind: " + response.list[index].wind.speed + " mph";
         HumidityEl.textContent = "Humidity: " + response.list[index].main.humidity + "%";
+        iconEl.setAttribute("src", "http://openweathermap.org/img/w/" + response.list[index].weather[0].icon + ".png");
 
         weatherDisplay.appendChild(dateEl);
         weatherDisplay.appendChild(tempEl);
         weatherDisplay.appendChild(windEl);
         weatherDisplay.appendChild(HumidityEl);
+        weatherDisplay.appendChild(iconEl);
         weatherDisplay.appendChild(lineBreak);
       }
 
@@ -79,15 +84,18 @@ function myFunction() {
               var parkName = document.createElement("p");
               var url = document.createElement("p");
               var description = document.createElement("p");
+              var image = document.createElement("img");
               var lineBreak = document.createElement("br");
 
               parkName.textContent = "Name: " + response.data[i].fullName;
               url.textContent = "Link: " + response.data[i].url;
               description.textContent = "Description: " + response.data[i].description;
+              image.setAttribute('src', response.data[i].images[0].url);
 
               parkDisplay.appendChild(parkName);
               parkDisplay.appendChild(url);
               parkDisplay.appendChild(description);
+              parkDisplay.appendChild(image);
               parkDisplay.appendChild(lineBreak);
 
               console.log("Located at index " + i);
@@ -96,6 +104,7 @@ function myFunction() {
               console.log(response.data[i].fullName);
               console.log(response.data[i].url);
               console.log(response.data[i].description);
+              console.log(response.data[i].image);
             }
           };
         });
