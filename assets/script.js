@@ -6,7 +6,6 @@ var weatherDisplay = document.querySelector("#weather-display");
 function myFunction() {
   var searchTerm = document.querySelector("#searchTerm").value.split(", ");
   event.preventDefault();
-  // console.log(searchTerm);
 
   // Make a `fetch` request concatenating that search term to the query URL for weather forecast
   fetch(
@@ -15,14 +14,13 @@ function myFunction() {
 
     // Converts the response to JSON
     .then(function (response) {
-      // console.log(response);
       return response.json();
     })
 
     .then(function (response) {
       console.log(response.city);
-      var weatherLat = response.city.coord.lat;
-      var weatherLong = response.city.coord.lon;
+      var cityLat = response.city.coord.lat;
+      var cityLong = response.city.coord.lon;
       var datesArray = []
       weatherDisplay.innerHTML = "<h2>" + "5 Day forecast:" + "</h2>" + "<br>";
 
@@ -39,8 +37,7 @@ function myFunction() {
         var HumidityEl = document.createElement("p");
         var iconEl = document.createElement("img");
         var lineBreak = document.createElement("br");
-        console.log(response.list[index].weather[0].icon);
-        
+
 
 
         dateEl.textContent = datesArray[index / 8];
@@ -72,41 +69,52 @@ function myFunction() {
 
         .then(function (response) {
 
+          var totalDisplayed = 0;
           parkDisplay.innerHTML = "<h2>" + "Park List:" + "</h2>" + "<br>";
-          for (let i = 0; i < response.data.length; i++) {
-            var parkLat = response.data[i].latitude
-            var parkLong = response.data[i].longitude
 
-            var latDiff = Math.abs(weatherLat - parkLat);
-            var longDiff = Math.abs(weatherLong - parkLong);
+          // See how many parks displayed with a max distance of 1 degree. 
+          // The call to function displayParks takes the entire response,
+          // city coordinates, and specified max distance
+          totalDisplayed = displayParks(response, cityLat, cityLong, 1)
+          // If none are displayed, expand the max distance to 2 degrees
+          if ((totalDisplayed === 0)) {
+            totalDisplayed = displayParks(response, cityLat, cityLong, 2)
+          }
 
-            if ((latDiff < 1) && (longDiff < 1)) {
-              var parkName = document.createElement("p");
-              var url = document.createElement("p");
-              var description = document.createElement("p");
-              var image = document.createElement("img");
-              var lineBreak = document.createElement("br");
 
-              parkName.textContent = "Name: " + response.data[i].fullName;
-              url.textContent = "Link: " + response.data[i].url;
-              description.textContent = "Description: " + response.data[i].description;
-              image.setAttribute('src', response.data[i].images[0].url);
-
-              parkDisplay.appendChild(parkName);
-              parkDisplay.appendChild(url);
-              parkDisplay.appendChild(description);
-              parkDisplay.appendChild(image);
-              parkDisplay.appendChild(lineBreak);
-
-              console.log("Located at index " + i);
-              console.log(latDiff);
-              console.log(longDiff);
-              console.log(response.data[i].fullName);
-              console.log(response.data[i].url);
-              console.log(response.data[i].description);
-              console.log(response.data[i].image);
-            }
-          };
         });
     });
 };
+
+function displayParks(response, cityLat, cityLong, maxDist) {
+  var total = 0;
+  
+  for (let i = 0; i < response.data.length; i++) {
+    var parkLat = response.data[i].latitude
+    var parkLong = response.data[i].longitude
+    var latDiff = Math.abs(cityLat - parkLat);
+    var longDiff = Math.abs(cityLong - parkLong);
+
+    if ((latDiff < maxDist) && (longDiff < maxDist)) {
+      var parkName = document.createElement("p");
+      var url = document.createElement("p");
+      var description = document.createElement("p");
+      var image = document.createElement("img");
+      var lineBreak = document.createElement("br");
+
+      parkName.textContent = "Name: " + response.data[i].fullName;
+      url.textContent = "Link: " + response.data[i].url;
+      description.textContent = "Description: " + response.data[i].description;
+      image.setAttribute('src', response.data[i].images[0].url);
+
+      parkDisplay.appendChild(parkName);
+      parkDisplay.appendChild(url);
+      parkDisplay.appendChild(description);
+      parkDisplay.appendChild(image);
+      parkDisplay.appendChild(lineBreak);
+      total++;
+    }
+  }
+
+  return total;
+}
