@@ -98,6 +98,8 @@ function myFunction() {
               parkDisplay.appendChild(image);
               parkDisplay.appendChild(lineBreak);
 
+              parkDisplay.classList.add("description");
+
               console.log("Located at index " + i);
               console.log(weatherLat - parkLat);
               console.log(weatherLong - parkLong);
