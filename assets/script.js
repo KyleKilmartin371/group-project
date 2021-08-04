@@ -80,15 +80,13 @@ function myFunction() {
           if ((totalDisplayed === 0)) {
             totalDisplayed = displayParks(response, cityLat, cityLong, 2)
           }
-
-
         });
     });
 };
 
 function displayParks(response, cityLat, cityLong, maxDist) {
   var total = 0;
-  
+
   for (let i = 0; i < response.data.length; i++) {
     var parkLat = response.data[i].latitude
     var parkLong = response.data[i].longitude
@@ -115,6 +113,5 @@ function displayParks(response, cityLat, cityLong, maxDist) {
       total++;
     }
   }
-
   return total;
 }
