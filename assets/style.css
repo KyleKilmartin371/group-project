@@ -71,6 +71,10 @@ body{
     max-width: auto;
 } */
 
+.park-item {
+    color: var(--sixth-color);
+}
+
 .weather-col{
     color: var(--second-color);
     padding: 100px;
@@ -80,6 +84,22 @@ body{
     background-color: var(--third-color);
     box-shadow: 0 0 10px var(--first-color);
     border-radius: 20px;
+}
+
+.weather-item {
+    color: var(--fifth-color);
+}
+
+.weather-title {
+    color: var(--fifth-color);
+    font-size: larger;
+    font-style: italic;
+}
+
+.park-list {
+    color: var(--sixth-color);
+    font-size: larger;
+    font-style: italic;
 }
 
 .weather-result{
