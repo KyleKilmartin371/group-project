@@ -124,6 +124,8 @@ function displayParks(response, cityLat, cityLong, maxDist) {
       parkDisplay.appendChild(image);
       parkDisplay.appendChild(lineBreak);
       total++;
+
+      parkDisplay.classList.add("description");
     }
   }
   return total;
