@@ -22,7 +22,7 @@ function myFunction() {
       var cityLat = response.city.coord.lat;
       var cityLong = response.city.coord.lon;
       var datesArray = []
-      weatherDisplay.innerHTML = "<h2>" + "5 Day forecast:" + "</h2>" + "<br>";
+      weatherDisplay.innerHTML = "<h2" + " class = 'weather-title'" +">" + "5 Day forecast:" + "</h2>" + "<br>";
 
       /* use jQuery to bring weather data from the API to the 5-day forecast cards */
       for (let day = 1; day <= 5; day++) {
@@ -38,6 +38,10 @@ function myFunction() {
         var iconEl = document.createElement("img");
         var lineBreak = document.createElement("br");
 
+        dateEl.className = "weather-item";
+        tempEl.className = "weather-item";
+        windEl.className = "weather-item";
+        HumidityEl.className = "weather-item";
 
 
         dateEl.textContent = datesArray[index / 8];
@@ -70,16 +74,21 @@ function myFunction() {
         .then(function (response) {
 
           var totalDisplayed = 0;
-          parkDisplay.innerHTML = "<h2>" + "Park List:" + "</h2>" + "<br>";
+          parkDisplay.innerHTML = "<h2" + " class = 'park-list'" +">" + "Park List:" + "</h2>" + "<br>";
 
           // See how many parks displayed with a max distance of 1 degree. 
           // The call to function displayParks takes the entire response,
           // city coordinates, and specified max distance
           totalDisplayed = displayParks(response, cityLat, cityLong, 1)
-          // If none are displayed, expand the max distance to 2 degrees
+          // If none are displayed, expand the max distance to 2 degrees. If still
+          // nothing returns, then display alert.
           if ((totalDisplayed === 0)) {
             totalDisplayed = displayParks(response, cityLat, cityLong, 2)
+            if ((totalDisplayed === 0)) {
+              parkDisplay.innerHTML = "<h2>" + "No nearby parks. Try another location." + "</h2>";
+            }
           }
+
         });
     });
 };
@@ -99,6 +108,10 @@ function displayParks(response, cityLat, cityLong, maxDist) {
       var description = document.createElement("p");
       var image = document.createElement("img");
       var lineBreak = document.createElement("br");
+
+      parkName.className = "park-item";
+      url.className = "park-item";
+      description.className = "park-item";
 
       parkName.textContent = "Name: " + response.data[i].fullName;
       url.textContent = "Link: " + response.data[i].url;

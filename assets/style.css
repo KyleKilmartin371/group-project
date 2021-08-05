@@ -1,13 +1,14 @@
 :root{
-    --first-color: #4f5d75;
-    --second-color: #b88E8D;
-    --third-color: #a8c7bb;
-    --fourth-color: #1d1a05;
-    --fifth-color: #ffbd00;
+    --first-color: #076023;
+    --second-color: #000000;
+    --third-color: #7e7e7e;
+    --fourth-color: #3e3d3a;
+    --fifth-color: #ffffff;
+    --sixth-color: #ffbd00;
 }
 
 html{
-    background-color: var(--second-color);
+    background-color: var(--fourth-color);
 }
 
 body{
@@ -18,45 +19,93 @@ body{
     margin: 30px;
 }
 
+.column{
+    margin:50px;
+}
+
 .title{
-    font-size: 75px;
-    color: var(--fourth-color);
-    padding: 50px;
-    border: solid 2px;
-    background-color: var(--third-color);
+    font-size: 125px;
+    color: var(--fifth-color); 
+    padding: 30px;
+    margin: 0px;
+    border-bottom: solid 5px var(--first-color);
+    background-color: var(--second-color);
 }
 
 .search-func{
-    color: var(--fourth-color);
+    color: var(--second-color);
     padding-bottom: 30px;
-    border: solid 2px;
+    border: solid 2px var(--second-color);
     background-color: var(--third-color);
+    box-shadow: 0 0 10px var(--first-color);
+    border-radius: 20px;
 }
 
 .button{
-    background-color: var(--fifth-color);
+    color: (var(--second-color));
+    background-color: var(--sixth-color);
 }
 
-.location{
-    color: var(--fourth-color);
-    padding: 25px;
+.park-col{
+    color: var(--second-color);
+    padding: 100px;
     border: solid 2px;
+    margin: 30px;
+    border: solid 2px var(--second-color);
     background-color: var(--third-color);
+    box-shadow: 0 0 10px var(--first-color);
+    border-radius: 20px;
 }
 
 .park-result{
-    color: var(--fourth-color);
+    display: flex;
+    flex-flow: column;
+}
+
+.description{
+    width: 40%;
+}
+
+/* .park-result img{
+    height: 300px;
+    max-width: auto;
+} */
+
+.park-item {
+    color: var(--sixth-color);
+}
+
+.weather-col{
+    color: var(--second-color);
+    padding: 100px;
     border: solid 2px;
-    margin: 10px;
+    margin: 30px;
+    border: solid 2px var(--second-color);
     background-color: var(--third-color);
+    box-shadow: 0 0 10px var(--first-color);
+    border-radius: 20px;
+}
+
+.weather-item {
+    color: var(--fifth-color);
+}
+
+.weather-title {
+    color: var(--fifth-color);
+    font-size: larger;
+    font-style: italic;
+}
+
+.park-list {
+    color: var(--sixth-color);
+    font-size: larger;
+    font-style: italic;
 }
 
 .weather-result{
-    color: var(--fourth-color);
-    border: solid 2px;
     margin: 10px;
-    background-color: var(--third-color);
 }
+
 .hide {
     display: none;
 }
