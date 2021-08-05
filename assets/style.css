@@ -61,15 +61,15 @@ body{
     display: flex;
     flex-flow: column;
 }
-
+/* 
 .description{
     width: 40%;
-}
+} */
 
-.park-result img{
+/* .park-result img{
     height: 300px;
     max-width: auto;
-}
+} */
 
 .weather-col{
     color: var(--second-color);
