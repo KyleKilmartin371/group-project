@@ -67,6 +67,7 @@ body{
     color: var(--sixth-color);
     width: 10%;
     margin: 0 5px;
+    display: flex;
 }
 
 .weather-title {
@@ -124,8 +125,131 @@ body{
 
 .weather-result{
     margin: 10px;
+    display: flex;
 }
 
 .hide {
     display: none;
 }
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+     .weather-result{
+        flex-direction: column;
+        padding-left: 250px;
+    }
+
+    .weather-item{
+        width: 400px;
+    }
+
+    .weather-result img{
+        height: 100px;
+        width: fit-content;
+    }
+
+    .park-col{
+        padding: 100px 100px 100px 180px;
+    }
+
+    .park-result{
+        padding: 0px;
+    }
+    
+    .park-item{
+        width: 509px;
+    }
+  }
+  
+  /* MEDIA QUERY FOR TABLETS AND SMALLER */
+  @media screen and (max-width: 768px) {
+      .search-func h2{
+          padding-left: 200px;
+      }
+
+    .park-item{
+        width: 323px;
+    }
+
+    .weather-title{
+        padding-left: 120px;
+    }
+
+    .weather-item{
+        padding-left: 120px;
+    }
+
+    .weather-result{
+        padding: 0px;
+    }
+
+    .weather-result img{
+        padding-left: 120px;
+    }
+
+    .park-col{
+        padding: 50px 20px 50px 20px;
+    }
+
+    .park-item{
+        width: 451px;
+    }
+
+    .park-result{
+        padding-left: 100px;
+    }
+    
+    .park-result img{
+        height: auto;
+    }
+  }
+  
+  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+  @media screen and (max-width: 575px) {
+    .search-func h2{
+        padding-left: 100px;
+    }
+
+    .search-func form{
+        padding-left: 80px;
+    }
+
+    .search-func button{
+        margin-right: 20px;
+    }
+
+  .park-item{
+      width: 329px;
+  }
+
+  .weather-col{
+      padding: 0px;
+  }
+
+  .weather-title{
+      padding-left: 120px;
+  }
+
+  .weather-item{
+      padding-left: 120px;
+  }
+
+  .weather-result img{
+      padding-left: 120px;
+  }
+
+  .park-col{
+      padding: 50px 0px 0px 0px;
+  }
+
+  .park-result{
+      padding-left: 100px;
+  }
+  
+  .park-result img{
+      height: 250px;
+      width: auto;
+      
+  }
+}
+  
