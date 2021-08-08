@@ -109,9 +109,10 @@ function displayParks(response, cityLat, cityLong, maxDist) {
       var image = document.createElement("img");
       var lineBreak = document.createElement("br");
 
-      parkName.className = "park-item";
-      url.className = "park-item";
-      description.className = "park-item";
+      parkName.className = "park-item parkName";
+      url.className = "park-item description";
+      description.className = "park-item description";
+      image.className = "park-item park-img";
 
       parkName.textContent = "Name: " + response.data[i].fullName;
       url.textContent = "Link: " + response.data[i].url;
@@ -125,7 +126,6 @@ function displayParks(response, cityLat, cityLong, maxDist) {
       parkDisplay.appendChild(lineBreak);
       total++;
 
-      parkDisplay.classList.add("description");
     }
   }
   return total;
