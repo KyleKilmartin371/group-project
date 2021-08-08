@@ -29,6 +29,7 @@ function myFunction() {
         var date = moment().add(day, "days").format("M/D/YYYY").toString()
         datesArray.push(date);
       }
+      console.log(datesArray)
 
       for (let index = 4; index <= 36; index += 8) {
         var dateEl = document.createElement("p");
@@ -36,7 +37,7 @@ function myFunction() {
         var windEl = document.createElement("p");
         var HumidityEl = document.createElement("p");
         var iconEl = document.createElement("img");
-        var lineBreak = document.createElement("br");
+
 
         dateEl.className = "weather-item";
         tempEl.className = "weather-item";
@@ -44,7 +45,7 @@ function myFunction() {
         HumidityEl.className = "weather-item";
 
 
-        dateEl.textContent = datesArray[index / 8];
+        dateEl.textContent = datesArray[(index-4) / 8];
         tempEl.textContent = "Temp: " + response.list[index].main.temp + " °F";
         windEl.textContent = "Wind: " + response.list[index].wind.speed + " mph";
         HumidityEl.textContent = "Humidity: " + response.list[index].main.humidity + "%";
@@ -55,7 +56,6 @@ function myFunction() {
         weatherDisplay.appendChild(windEl);
         weatherDisplay.appendChild(HumidityEl);
         weatherDisplay.appendChild(iconEl);
-        weatherDisplay.appendChild(lineBreak);
       }
 
       // function to call trail API
@@ -83,7 +83,7 @@ function myFunction() {
           // If none are displayed, expand the max distance to 2 degrees. If still
           // nothing returns, then display alert.
           if ((totalDisplayed === 0)) {
-            totalDisplayed = displayParks(response, cityLat, cityLong, 2)
+            totalDisplayed = displayParks(response, cityLat, cityLong, 3)
             if ((totalDisplayed === 0)) {
               parkDisplay.innerHTML = "<h2>" + "No nearby parks. Try another location." + "</h2>";
             }

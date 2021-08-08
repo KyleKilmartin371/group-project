@@ -95,12 +95,14 @@ body{
 
 .weather-item {
     color: var(--fifth-color);
-    width: 10%;
+    /* width: 10%; */
     margin: 0 5px;
 }
 
 .weather-title {
     color: var(--fifth-color);
+    margin: 0 5px;
+    float: left;
     font-size: larger;
     font-style: italic;
     text-align: left;
@@ -112,8 +114,8 @@ body{
     font-style: italic;
 }
 
-.weather-result{
-    margin: 10px;
+.weather-result img {
+    margin: 5px;
 }
 
 .hide {
