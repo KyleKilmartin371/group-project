@@ -18,7 +18,6 @@ function myFunction() {
     })
 
     .then(function (response) {
-      // console.log(response.city);
       var cityLat = response.city.coord.lat;
       var cityLong = response.city.coord.lon;
       var datesArray = []
@@ -91,9 +90,9 @@ function myFunction() {
     });
 };
 
-// This function accepts an object called coordinates which has the
-// corresponding latitude and longitude in degrees. It converts them
-// to a miles for display on the parkDisplay GUI
+// This function accepts the coordinates of the city entered, plus
+// the ones from the park element which is currently being processed 
+// from the response array. It returns the distance in miles.
 function convertCoordinates(lat1, lat2, long1, long2) {
   if ((lat1 == lat2) && (lon1 == lon2)) {
     return 0;
@@ -110,8 +109,6 @@ function convertCoordinates(lat1, lat2, long1, long2) {
     dist = Math.acos(dist);
     dist = dist * 180 / Math.PI;
     dist = dist * 60 * 1.1515;
-    // if (unit == "K") { dist = dist * 1.609344 }
-    // if (unit == "N") { dist = dist * 0.8684 }
     return dist;
   }
 }
